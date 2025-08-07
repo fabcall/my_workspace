@@ -1,0 +1,82 @@
+name: my_workspace
+publish_to: none
+environment:
+  sdk: ^3.8.0
+
+flutter:
+  uses-material-design: true
+
+workspace:
+  - apps/my_app
+  - packages/core_framework
+  - packages/lint_rules
+  - packages/shared/shared_utils
+
+dependencies:
+  dio: ^5.9.0
+  dio_cache_interceptor: ^4.0.3
+  flutter:
+    sdk: flutter
+  get_it: ^8.2.0
+  go_router: ^16.1.0
+  meta: ^1.16.0
+  package_info_plus: ^8.3.0
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  http_parser: ^4.1.2
+  intl: ^0.20.2
+  rive: ^0.13.20
+  shared_preferences: ^2.5.3
+
+dev_dependencies:
+  melos: ^7.0.0-dev.9
+
+melos:
+  # All of the content of your previous melos.yaml file
+  # (Except for the packages and name)
+  command:
+    bootstrap:
+      usePubspecOverrides: true
+      runPubGetInParallel: true
+
+  scripts:
+    analyze:
+      run: |
+        melos exec -- "dart analyze . --fatal-infos"
+      description: Run analyzer in all packages.
+
+    format:
+      run: |
+        melos exec -- "dart format --set-exit-if-changed ."
+      description: Run dart format in all packages.
+
+    test:
+      run: |
+        melos exec --dir-exists="test" --fail-fast -- \
+          "flutter test --no-pub"
+      description: Run tests in all packages.
+
+    build:
+      run: |
+        cd apps/my_app && \
+        flutter build apk --release
+      description: Build the Android app in release mode.
+
+    clean:
+      run: |
+        melos exec -- "flutter clean"
+      description: Clean all projects.
+
+    upgrade:
+      run: |
+        melos exec -- "flutter pub upgrade"
+      description: Upgrade dependencies in all packages.
+
+    version:
+      run: |
+        dart ./tools/melos_scripts/version_bump.dart
+      description: Bump version across packages.
+
+    doctor:
+      run: flutter doctor
+      description: Check Flutter environment setup.

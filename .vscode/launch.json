@@ -1,0 +1,44 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Development",
+            "program": "apps/my_app/lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "development",
+                "--dart-define-from-file",
+                "env/dev.env"
+            ],
+            "flutterMode": "debug"
+        },
+        {
+            "name": "Staging",
+            "program": "apps/my_app/lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "staging",
+                "--dart-define-from-file",
+                "env/stg.env"
+            ],
+            "flutterMode": "debug"
+        },
+        {
+            "name": "Production",
+            "program": "apps/my_app/lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--flavor",
+                "production",
+                "--dart-define-from-file",
+                "env/prd.env"
+            ],
+            "flutterMode": "release"
+        }
+    ]
+}

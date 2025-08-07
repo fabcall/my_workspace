@@ -1,0 +1,7 @@
+include: package:lint_rules/analysis_options.yaml
+analyzer:
+  exclude:
+    - lib/l10n/gen/*
+linter:
+  rules:
+    public_member_api_docs: false

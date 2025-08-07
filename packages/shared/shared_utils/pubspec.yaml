@@ -1,0 +1,25 @@
+name: shared_utils
+description: Common utilities and extensions for Flutter apps including currency formatting, date/time helpers, and localization support.
+version: 0.1.0+1
+publish_to: none
+
+resolution: workspace
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint_rules:
+    path: ../../lint_rules
+
+flutter:
+  uses-material-design: true

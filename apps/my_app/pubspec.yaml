@@ -1,0 +1,33 @@
+name: my_app
+description: A Very Good Project created by Very Good CLI.
+version: 1.0.0+1
+publish_to: none
+
+resolution: workspace
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  core_framework:
+    path: ../../packages/core_framework
+  dio: any
+  dio_cache_interceptor: any
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  get_it: any
+  go_router: any
+  http_parser: any
+  intl: any
+  meta: any
+  package_info_plus: any
+  rive: any
+  shared_preferences: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint_rules:
+    path: ../../packages/lint_rules
